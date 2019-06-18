@@ -14,7 +14,6 @@ urlpatterns = [
     re_path(r'^conta/', include(acc_url, namespace = 'accounts')),
     re_path(r'^cursos/', include(course_url, namespace = 'courses')),
 
-]
-
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+#if settings.DEBUG:
+ #   urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
