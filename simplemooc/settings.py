@@ -146,7 +146,6 @@ LOGIN_REDIRECT_URL = 'core:home'
 LOGOUT_URL = 'accounts:logout'
 #LOGOUT_REDIRECT_URL = 'core:home'
 AUTH_USER_MODEL = 'accounts.User'
-<<<<<<< HEAD
 
 #heroku settings
 import dj_database_url
@@ -161,5 +160,3 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     od.path.join(BASE_DIR, 'static'),
 )
-=======
->>>>>>> 60af8745bf35669f883849f94e0fe08c66ea2a00
