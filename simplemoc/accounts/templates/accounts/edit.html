@@ -1,0 +1,67 @@
+{% extends "accounts/dashboard.html" %}
+
+{% block breadcrumb %}
+    {{ block.super }}
+    <li>/</li>
+    <li><a href="{% url 'accounts:edit' %}">Editar Conta</a></li>
+{% endblock %}
+
+{% block dashboard_content %}
+<!-- <form class="pure-form pure-form-stacked" method="post"> -->
+        <form class="pure-form pure-form-stacked" method="POST">
+                {% csrf_token %}
+                <fieldset>
+                    <!-- <div class="pure-control-group">
+                        <label for="name">Input Text</label>
+                        <input id="name" type="text" />
+                         <ul class="errorlist">
+                            <li>Este campo é obrigatório</li>
+                        </ul>
+                        
+                    </div> -->
+                    {{form.non_field_errors}}
+                    {% for field in form %}
+                    <div class="pure-control-group">
+                            <!-- <div class="pure-controls"> -->
+                                {{field.label_tag}}
+                                {{field}}
+                                {{field.errors}}
+                            <!-- </div> -->
+                            
+                        <!-- <label for="name">Select</label>
+                        <select>
+                            <option value="">Option 1</option>
+                            <option value="">Option 2</option>
+                            <option value="">Option 3</option>
+                        </select> -->
+                    </div>
+                    {% endfor %}
+
+                    <!-- <div class="pure-control-group">
+                        <label for="password">Textarea</label>
+                        <textarea cols="40" rows="4"></textarea>
+                    </div> -->
+
+                    <div class="pure-controls">
+                        <button type="submit" class="pure-button pure-button-primary">Salvar</button>
+                    </div>
+                </fieldset>
+            </form>
+
+    <!-- {% csrf_token %}
+    
+    <fieldset>
+        {{ form.non_field_errors }}
+        {% for field in form %}
+        <div class="pure-control-group">
+            {{ field.label_tag }}
+            {{ field }}
+            {{ field.errors }}
+        </div>
+        {% endfor %}
+        <div class="pure-controls">
+            <button type="submit" class="pure-button pure-button-primary">Salvar Modificações</button>
+        </div>
+    </fieldset> -->
+<!-- </form> -->
+{% endblock %}
