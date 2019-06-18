@@ -135,7 +135,7 @@ DEFAULT_FROM_EMAIL = 'Nome <iaiapeliculas@gmail.com>'
 EMAIL_USE_TLS = True
 #EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'iaiapeliculas@gmail.com'
-#EMAIL_HOST_PASSWORD = 'explain@456'
+#EMAIL_HOST_PASSWORD = ''
 #EMAIL_PORT = 587
 
 CONTACT_EMAIL = 'contato@simplemooc.com'
@@ -146,3 +146,17 @@ LOGIN_REDIRECT_URL = 'core:home'
 LOGOUT_URL = 'accounts:logout'
 #LOGOUT_REDIRECT_URL = 'core:home'
 AUTH_USER_MODEL = 'accounts.User'
+
+#heroku settings
+import dj_database_url
+DATABASES['default'] = dj_database_url.config()
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_x_FORWARDED_PROTO', 'https')
+
+ALLOWED_HOSTS = ['*']
+STATIC_ROOT = 'staticfiles'
+STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+    od.path.join(BASE_DIR, 'static'),
+)
